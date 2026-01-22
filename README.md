@@ -76,6 +76,9 @@ ADMIN_DISCORD_BOT_CHANNELS = [111, 222, 333]
 SOV_DISCORD_BOT_CHANNELS = [111, 222, 333]
 # Adm Commands
 ADM_DISCORD_BOT_CHANNELS = [111, 222, 333]
+# Recruitment Commmands
+RECRUIT_CHANNEL_ID = 123456789
+RECRUITER_GROUP_ID = 123456789
 
 DISCORD_BOT_SOV_STRUCTURE_OWNER_IDS = [1000169] # Centre for Advanced Studies example
 DISCORD_BOT_MEMBER_ALLIANCES = [111, 222, 333] # A list of alliances to be considered "Mains"
@@ -118,7 +121,7 @@ Add a service to run the Discordbot
     container_name: allianceauth_discordbot
     <<: [ *allianceauth-base ]
     restart: on-failure
-    entrypoint: [ "auth", "run_authbot" ]
+    entrypoint: [ "python", "-u", "/home/allianceauth/myauth/manage.py", "run_authbot" ]
 ```
 
 * run `docker compose up -d` to start the bot.
